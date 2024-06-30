@@ -21,10 +21,19 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomePage(),
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) {
+            return HomePage(short: settings.name);
+          },
+        );
+      },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-        builder: (context) => const HomePage(),
-      );
+          builder: (context) {
+            return HomePage(short: settings.name);
+          },
+        );
       }
     );
   }
@@ -46,7 +55,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _urlController = TextEditingController();
   final AcanthisString _shortUrl = string().pattern(RegExp(r'^https?://.*$')).min(1).max(1024);
   final List<ShortUrl> _shortUrls = <ShortUrl>[];
-  final Dio _client = Dio(BaseOptions(baseUrl: 'https://short-be.serinus.app'));
+  final Dio _client = Dio(BaseOptions(baseUrl: 'http://localhost:8080', followRedirects: true));
 
   @override
   void initState() {
@@ -62,7 +71,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _urlController.dispose();
   }
