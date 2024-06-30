@@ -1,0 +1,17 @@
+name: shortner
+description: "A new Serinus application"
+version: 1.0.0
+publish_to: 'none'
+
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  cron: ^0.6.1
+  mustachex: ^1.0.0
+  serinus: ^0.5.2
+  serinus_cors: ^0.1.1
+  serinus_rate_limiter: ^1.0.1
+  sqflite_common_ffi: ^2.3.3
+  
