@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _urlController = TextEditingController();
   final AcanthisString _shortUrl = string().pattern(RegExp(r'^https?://.*$')).min(1).max(1024);
   final List<ShortUrl> _shortUrls = <ShortUrl>[];
-  final Dio _client = Dio(BaseOptions(baseUrl: 'http://localhost:8080'));
+  final Dio _client = Dio(BaseOptions(baseUrl: 'https://short-be.serinus.app'));
 
   @override
   void initState() {
