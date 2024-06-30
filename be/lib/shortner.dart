@@ -9,7 +9,7 @@ Future<void> bootstrap() async {
   final app = await serinus.createApplication(
     entrypoint: AppModule(),
     host: '0.0.0.0',
-    port: 8080,
+    port: 9090,
   );
   app.use(RateLimiterHook(maxRequests: 100, duration: Duration(minutes: 1)));
   app.use(CorsHook());

@@ -19,7 +19,7 @@ RUN apt-get update -qq && \
     cp /usr/lib/$(uname -m)-linux-gnu/libsqlite3.so /tmp/libsqlite3.so
 
 FROM scratch
-EXPOSE 8080
+EXPOSE 9090
 COPY --from=build /runtime/ /
 COPY --from=build /app-be/bin/app-be /app-be/bin/
 COPY --from=sqlite /tmp/libsqlite3.so /usr/lib/libsqlite3.so
