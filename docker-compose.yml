@@ -7,8 +7,8 @@ services:
     ports:
       - 9080:9080
     volumes:
-      - ./conf/nginx-core.conf:/etc/nginx/nginx.conf
-      - ./conf/nginx-app.conf:/etc/nginx/conf.d/default.conf
+      - ./app/conf/nginx-core.conf:/etc/nginx/nginx.conf
+      - ./app/conf/nginx-app.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - backend
 
