@@ -1,6 +1,6 @@
 import 'package:cron/cron.dart';
 import 'package:serinus/serinus.dart';
-import 'package:shortner/models/short_url.dart';
+import '../models/short_url.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class SqliteProvider extends Provider with OnApplicationInit{

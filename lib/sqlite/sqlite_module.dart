@@ -1,5 +1,5 @@
 import 'package:serinus/serinus.dart';
-import 'package:shortner/sqlite/sqlite_provider.dart';
+import 'sqlite_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class SqliteModule extends Module {

@@ -20,7 +20,7 @@ class AppController extends Controller {
     final limit = int.tryParse(context.query['limit'] ?? '10');
     final offset = ((int.tryParse(context.query['page'] ?? '1') ?? 1) - 1) * (limit ?? 10);
     final result = await provider.getAll(limit: limit, offset: offset);
-    return Response.json(result);
+    return Response.render(View('home', {'list': result.map((e) => e.toJson()).toList()}));
   }
 
   Future<Response> getUrl(RequestContext context) async {
@@ -30,7 +30,7 @@ class AppController extends Controller {
       throw NotFoundException();
     }
     await provider.incrementVisits(result);
-    return Response.json(result);
+    return Response.redirect(result.url);
   }
 
   Future<Response> create(RequestContext context) async {

@@ -1,7 +1,8 @@
 import 'package:serinus/serinus.dart';
 import 'package:serinus_cors/serinus_cors.dart';
 import 'package:serinus_rate_limiter/serinus_rate_limiter.dart';
-import 'package:shortner/entity_hook.dart';
+import 'entity_hook.dart';
+import 'view_engine/view_engine.dart';
 
 import 'app_module.dart';
 
@@ -12,7 +13,8 @@ Future<void> bootstrap() async {
     port: 9090,
   );
   app.use(RateLimiterHook(maxRequests: 100, duration: Duration(minutes: 1)));
-  app.use(CorsHook());
   app.use(EntityHook());
+  app.use(CorsHook());
+  app.useViewEngine(MustacheViewEngine());
   await app.serve();
 }
