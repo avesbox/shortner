@@ -14,7 +14,7 @@ class MustacheViewEngine extends ViewEngine{
     final processor = MustachexProcessor(
       initialVariables: view.variables
     );
-    final template = File('${Directory.current.path}/$viewFolder/${view.view}.mustache');
+    final template = File('${Directory.current.path}/$viewFolder/${view.view}.mustache'.replaceAll('//', '/'));
     final exists = await template.exists();
     if(exists){
       final content = await template.readAsString();
